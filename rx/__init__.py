@@ -7,7 +7,7 @@ from .core import Observable, pipe, typing
 from .internal.utils import alias
 
 # Please make sure the version here remains the same as in project.cfg
-__version__ = '3.1.1'
+__version__ = '3.2.0'
 
 
 def amb(*sources: Observable) -> Observable:
@@ -328,7 +328,7 @@ def fork_join(*sources: Observable) -> Observable:
 
         ---a-----b--c---d-|
         --1---2------3-4---|
-        -a--------- b---|
+        -a---------b---|
         [      fork_join()     ]
         --------------------d4b|
 
