@@ -3,5 +3,5 @@
 Typing
 =======
 
-.. automodule:: rx.core.typing
+.. automodule:: reactivex.typing
     :members:

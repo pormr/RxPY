@@ -1,22 +1,23 @@
 import concurrent.futures
 import time
 
-import rx
-from rx import operators as ops
+import reactivex
+from reactivex import operators as ops
 
 seconds = [5, 1, 2, 4, 3]
 
 
-def sleep(tm):
+def sleep(tm: float) -> float:
     time.sleep(tm)
     return tm
 
 
-def output(result):
-    print('%d seconds' % result)
+def output(result: str) -> None:
+    print("%d seconds" % result)
+
 
 with concurrent.futures.ProcessPoolExecutor(5) as executor:
-    rx.from_(seconds).pipe(
+    reactivex.from_(seconds).pipe(
         ops.flat_map(lambda s: executor.submit(sleep, s))
     ).subscribe(output)
 
